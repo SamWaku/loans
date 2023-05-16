@@ -1,0 +1,39 @@
+{
+  "name": "loans",
+  "version": "1.0.0",
+  "description": "A fullstack project to manage student loans",
+  "main": "server.js",
+  "scripts": {
+    "test": "start",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamWaku/loans.git"
+  },
+  "author": "griffin - sam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SamWaku/loans/issues"
+  },
+  "homepage": "https://github.com/SamWaku/loans#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "cuid": "^3.0.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "path": "^0.12.7",
+    "pug": "^3.0.2"
+  }
+}
