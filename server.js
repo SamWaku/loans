@@ -7,7 +7,11 @@ const logger = require('morgan');
 const cors = require('cors');
 const exphbs = require("express-handlebars");
 const ejs = require("ejs");
+const session = require ('express-session')
+const passport = require('passport');
 const path = require("path")
+const helmet = require("helmet");
+const cookieparser = require("cookie-parser")
 
 //addons
 dotenv.config();
@@ -15,11 +19,34 @@ dotenv.config();
 //application program begins here
 const app = express();
 
+//cookie management
+app.use(helmet())
+app.use(cookieparser())
+
 //importing from the routes folder
 
 
 //frontend declarations
 const viewsrouter = require("./frontend/routes");
+
+//UI configurations
+app.engine('.hbs', exphbs.engine({defaultLayout: 'main', extname: '.hbs'}))
+app.set("view engine", ".hbs");
+
+//express-session middleware
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "SECRET",
+}));
+
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+//static folder
+app.use(express.static(path.join(__dirname, '/public' )))
 
 
 //setting up ejs view template and express Handlebars
